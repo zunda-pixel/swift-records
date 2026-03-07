@@ -19,8 +19,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/coenttb/swift-structured-queries-postgres",
-            from: "0.2.0",
+            url: "https://github.com/zunda-pixel/swift-structured-queries-postgres",
+            branch: "fix-build-error",
             traits: ["StructuredQueriesPostgresTagged"]
         ),
         .package(url: "https://github.com/vapor/postgres-nio", from: "1.21.0"),
