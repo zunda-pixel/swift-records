@@ -25,6 +25,17 @@ public struct PostgresQueryDecoder: QueryDecoder {
       return nil
     }
 
+    if column.dataType == .bytea {
+      switch column.format {
+      case .binary:
+        return Array(try column.decode(ByteBuffer.self).readableBytesView)
+      case .text:
+        guard let decoded = decodePostgresHexBytea(try column.decode(String.self))
+        else { return nil }
+        return decoded
+      }
+    }
+
     // Try to decode as JSONB first (PostgreSQL's JSON binary format)
     // PostgreSQL can return JSONB as a text string in JSON format
     if let jsonString = try? column.decode(String.self) {
@@ -38,6 +49,28 @@ public struct PostgresQueryDecoder: QueryDecoder {
     }
 
     return nil
+  }
+
+  private func decodePostgresHexBytea(_ encoded: String) -> [UInt8]? {
+    let hex = encoded.hasPrefix(#"\x"#) ? encoded.dropFirst(2) : encoded[...]
+    guard hex.count.isMultiple(of: 2) else {
+      return nil
+    }
+
+    var bytes: [UInt8] = []
+    bytes.reserveCapacity(hex.count / 2)
+
+    var index = hex.startIndex
+    while index < hex.endIndex {
+      let nextIndex = hex.index(index, offsetBy: 2)
+      guard let byte = UInt8(hex[index..<nextIndex], radix: 16) else {
+        return nil
+      }
+      bytes.append(byte)
+      index = nextIndex
+    }
+
+    return bytes
   }
 
   public mutating func decode(_ columnType: Double.Type) throws -> Double? {
