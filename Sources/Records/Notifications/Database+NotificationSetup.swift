@@ -1,8 +1,8 @@
 import Foundation
 import PostgreSQL_Standard
-import Structured_Queries_Primitives_Support
-import Tagged_Primitives
-import Tagged_Primitives_Standard_Library_Integration
+import Structured_Queries_Support
+import Tagged
+import Tagged_Standard_Library_Integration
 
 // Note: Notification channel setup is provided as extensions on Database.Connection.Protocol
 // See Database+NotificationSetup.swift for the type-safe API

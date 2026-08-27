@@ -1,9 +1,9 @@
-import Byte_Primitives
+import Byte
 import Foundation
 import NIOCore
 import PostgreSQL_Standard
 import PostgresNIO
-import Structured_Queries_Primitives_Foundation_Integration
+import Structured_Queries_Foundation_Integration
 
 extension PostgresQuery {
     package init(from fragment: QueryFragment) throws(Database.Error) {

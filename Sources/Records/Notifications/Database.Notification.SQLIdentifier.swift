@@ -1,7 +1,7 @@
 import Foundation
 import PostgreSQL_Standard
-import Tagged_Primitives
-import Tagged_Primitives_Standard_Library_Integration
+import Tagged
+import Tagged_Standard_Library_Integration
 
 // MARK: - Tagged Type Aliases for SQL Identifiers
 

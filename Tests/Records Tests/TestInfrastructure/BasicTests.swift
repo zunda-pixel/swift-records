@@ -86,7 +86,7 @@ struct `Adapter Tests` {
     func `Generic array binding throws a typed error instead of binding NULL`() {
         // PostgreSQL has no heterogeneous array type, so a `.genericArray` binding
         // (mixed-case elements) cannot be represented as a native array parameter.
-        // Regression coverage for swift-foundations/swift-records#9: this used to
+        // Regression coverage for swift-compositions/swift-records#9: this used to
         // silently substitute NULL for the caller's actual values instead of
         // failing the query.
         let fragment: QueryFragment = """

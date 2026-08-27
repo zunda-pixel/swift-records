@@ -10,15 +10,15 @@ let package = Package(
     dependencies: [
         .package(path: ".."),
         .package(
-            url: "https://github.com/swift-foundations/swift-tests.git",
+            url: "https://github.com/swift-compositions/swift-tests.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-foundations/swift-dependencies.git",
+            url: "https://github.com/swift-compositions/swift-dependencies.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-foundations/swift-environment-dependencies.git",
+            url: "https://github.com/swift-compositions/swift-environment-dependencies.git",
             branch: "main"
         ),
         .package(

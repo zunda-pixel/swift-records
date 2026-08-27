@@ -1,8 +1,8 @@
 # Parked (W-B native spine swap 2026-07-12)
 
 swift-records was ported off the pointfreeco `swift-structured-queries-postgres`
-(sqp) fork onto the institute-native line (L1 Structured Queries Primitives + L2
-PostgreSQL Standard). The `Records` product spine swap is complete and green. The
+(sqp) fork onto the institute-native line (L2 Structured Queries + L3 PostgreSQL
+Standard). The `Records` product spine swap is complete and green. The
 directories below are parked out of the built source tree to keep the port bounded
 and the closure pointfreeco-zero / coenttb-zero; each is restored by its named
 follow-up.
@@ -14,7 +14,7 @@ follow-up.
   coupling that must not re-enter the port closure.
 - **Restore (R2, demand-gated):** re-derive natively against the LISTEN/NOTIFY and
   `tsvector` surfaces in `swift-postgresql-standard`, with `Tagged` replaced by the
-  L1 `Tagged Primitives` functor. See `persistence-stack-strategy.md` §4-R2.
+  L2 `Tagged` functor. See `persistence-stack-strategy.md` §4-R2.
 
 ## `RecordsTestSupport/` and `Tests/` (the `RecordsTests` target) — swift-tests migration
 

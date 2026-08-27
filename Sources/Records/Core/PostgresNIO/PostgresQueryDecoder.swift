@@ -1,10 +1,10 @@
-import Byte_Primitives
+import Byte
 import Foundation
 import NIOCore
 import PostgreSQL_Standard
 import PostgresNIO
-import Structured_Queries_Primitives_Foundation_Integration
-import Time_Primitives
+import Structured_Queries_Foundation_Integration
+import Time
 
 public struct PostgresQueryDecoder: QueryDecoder {
     internal let row: PostgresRandomAccessRow
@@ -153,7 +153,7 @@ public struct PostgresQueryDecoder: QueryDecoder {
         }
     }
 
-    // The requirement is stated in `Instant` since the L1 Foundation drain.
+    // The requirement is stated in `Instant` since the L2 Foundation drain.
     // PostgresNIO decodes timestamps as `Foundation.Date`, so the wire value is
     // still read as a `Date` and lifted at the boundary — including the ISO8601
     // string fallback, which is unchanged apart from that lift.
@@ -201,7 +201,7 @@ public struct PostgresQueryDecoder: QueryDecoder {
         }
     }
 
-    // `decode(_: Decimal.Type)` is deliberately absent: the L1 Foundation drain
+    // `decode(_: Decimal.Type)` is deliberately absent: the L2 Foundation drain
     // removed that `QueryDecoder` requirement, and `Decimal` now decodes through
     // the Foundation Integration target's `Decimal.init(decoder:)`, which reads
     // the value's exact digits as a `String`.

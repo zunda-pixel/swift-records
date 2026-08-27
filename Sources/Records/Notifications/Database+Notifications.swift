@@ -1,7 +1,7 @@
 import Foundation
 import PostgresNIO
-import Tagged_Primitives
-import Tagged_Primitives_Standard_Library_Integration
+import Tagged
+import Tagged_Standard_Library_Integration
 
 extension Database {
     /// Internal stream of raw notifications from PostgreSQL LISTEN/NOTIFY.
